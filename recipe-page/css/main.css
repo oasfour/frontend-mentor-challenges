@@ -1,0 +1,186 @@
+/* Design Intent ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Mobile (Default) Design: Width < 736px
+  * No padding around figure
+  * Scale Image up to 656px max
+Larger Screen Adaptations: Width >= 736px
+  * Add padding around figure
+  * Maintain Image at 656px max
+Print Media Adaptations (save paper)
+  * Omit figure/image
+  * Reduce white-space
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* ########## Default Style Sheet ########################################### */
+
+/* Typography (Default) ************* */
+@import url('https://fonts.googleapis.com/css2?family=Outfit&family=Young+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+body {
+  font-size: 16px;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.recipetitle {
+  font-family: "Young Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2.2rem;
+}
+section.recipedetail h2 {
+  font-family: "Young Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+}
+span.bulletstart { font-weight: 600;}
+td.nutrition-value { font-weight: 700; }
+div.attribution { font-size: 11px; }
+
+/* Text Styles (Default) ************ */
+
+/* Color Pallet (Default) *********** */
+body {
+  background-color: hsl(30, 54%, 90%);
+  color: hsl(14, 45%, 36%);
+}
+article.recipecard {
+  background-color: hsl(0, 0%, 100%);
+}
+.recipeintro {
+  color: hsl(24, 5%, 18%);
+}
+.recipeprep {
+  background-color: hsl(330, 100%, 98%);
+  color: hsl(14, 45%, 36%);
+}
+.recipeprep h2 { color: hsl(332, 51%, 32%); }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+/* Border Styles (Default) ********** */
+table.nutrition-table {border-collapse: collapse;}
+tr.nutrition-fact:not(:first-child):not(:last-child) td {
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
+article.recipecard .recipedetail:not(:first-child) {
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Alignment (Default) ************** */
+h1,h2 { margin: 0; padding: 0; }
+
+body {
+  text-align: center;
+  margin: 0;
+}
+
+article.recipecard {
+  text-align: center;
+  max-width: 736px;
+  margin: auto;
+  padding-bottom: 40px;
+}
+article.recipecard > section:last-of-type { margin-bottom: 0px; }
+
+article.recipecard > figure.recipephoto { margin:0; }
+article.recipecard > figure.recipephoto > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 656px;
+  margin: auto;
+}
+
+header.recipeintro {
+  text-align: left;
+  margin: 40px;
+}
+
+section.recipeprep {
+  text-align: left;
+  border-radius: 13px;
+  margin: 40px;
+  padding: 26px;
+}
+section.recipeprep > ul,
+section.recipeprep li {
+  padding-left: 26px;
+}
+section.recipeprep li:not(:first-child):not(:last-child) {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+section.recipedetail {
+  text-align: left;
+  margin: 30px;
+  padding-top: 30px;
+}
+
+section.recipedetail ul,
+section.recipedetail ol { padding-left: 25px; }
+section.recipedetail li { padding-left: 25px; }
+section.recipedetail:not(:first-child):not(:last-child) li {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+table.nutrition-table {width: 100%; }
+td.nutrition-attribute { width: 50%; }
+td.nutrition-value { width: 50%; }
+
+td.nutrition-attribute { padding-left: 2rem; }
+td.nutrition-value     { padding-left: 1rem; }
+
+tr:not(:first-child):not(:last-child) td {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+tr:first-child td { padding-bottom: 1rem; }
+tr:last-child td { padding-top: 1rem; }
+
+div.attribution { text-align: center; }
+
+/* ########## Adaptations for Larger Screens ################################ */
+@media only screen and (min-width: 736px) {
+  article.recipecard {
+    padding-top: 40px;
+    border-radius: 20px;
+  }
+  article.recipecard > figure.recipephoto {
+    padding-left: 40px;
+    padding-right: 40px
+  }
+  article.recipecard > figure.recipephoto > img {
+    border-radius: 10px;
+  }
+  td.nutrition-value { padding-left: 0.4rem; }
+}
+
+/* ########## Adaptations for Print (Saving some paper) ##################### */
+@media print {
+  article.recipecard > figure.recipephoto { display: none; }
+  footer {display: none; }
+  header.recipeintro,
+  section.recipedetail {
+    margin-top: 0; margin-bottom: 0;
+  }
+  section.recipeprep { margin-top: 0; padding-top: 0; margin-bottom: 0; padding-bottom: 0; }
+  section.recipeprep li:not(:first-child):not(:last-child) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  section.recipedetail:not(:first-child):not(:last-child) li {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  table.nutrition-table {width: 50%; }
+  tr:not(:first-child):not(:last-child) td {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  tr:first-child td { padding-bottom: 0; }
+  tr:last-child td { padding-top: 0; }
+}

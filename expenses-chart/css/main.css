@@ -1,0 +1,145 @@
+/* ########## Default Style Sheet ########################################### */
+
+/* Font ***************************** */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+body {
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Typography (Default) ************* */
+html { font-size: 18px; }
+.my-balance h1 { font-size: 0.75rem; font-weight: 400;}
+.my-balance span { font-size: 1rem; font-weight: 700;}
+.my-summary h2 { font-weight: 400; font-size: 0.75rem; }
+.my-summary .total span { font-weight: 700; }
+.my-summary .lastmonth span { font-weight: 700; font-size: 0.75rem; }
+.attribution { font-size: 11px; }
+
+/* Text Styles (Default) ************ */
+
+/* Color Pallet (Default) *********** */
+body { background-color: hsl(27, 66%, 92%); }
+.my-balance { background-color: hsl(10, 79%, 65%); color: hsl(33, 100%, 98%); }
+.my-spending { background-color: hsl(33, 100%, 98%); }
+.my-spending h1 { color: hsl(25, 47%, 15%); }
+.chart-value { color: hsl(25, 47%, 15%); }
+.chart-day { color: hsl(28, 10%, 53%); }
+.chart-bar-regular rect { fill: hsl(10, 79%, 65%); }
+.chart-bar-highlighted rect { fill: hsl(186, 34%, 60%);}
+.my-summary h2 { color: hsl(28, 10%, 53%); }
+.my-summary span { color: hsl(25, 47%, 15%); }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+/* Border Styles (Default) ********** */
+.my-summary { border-top: 1px solid hsl(27, 66%, 92%); }
+
+/* Centering (Document) ************* */
+html, body { display: grid; height: 100%;}
+body > #document { margin: auto; }
+
+/* Alignment ************************ */
+h1,h2,h3 { margin: 0; }
+main {
+    /* min-width: 343px; */
+    max-width: 540px;
+}
+/* ----------------------- */
+.my-balance, .my-spending {
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.my-balance { margin-bottom: 15px; }
+.my-spending { margin-top: 15px; }
+.my-balance figure { margin: 0; justify-self: end; align-self: center; }
+img.logo { width: 60px; height: 40px; vertical-align: top; }
+
+.my-balance {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: end;
+}
+
+.my-balance {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+/* ----------------------- */
+.my-spending {
+    padding-top: 30px;
+    padding-bottom: 25px;
+}
+.my-spending h1 {
+    padding-bottom: 25px;
+    vertical-align: top;
+    display: inline-block;
+}
+/* ----------------------- */
+#chart {
+    display: grid;
+    grid-template-rows: 24px 150px 1rem;
+    justify-content: center;
+    align-items: end;
+    padding-top:     1px;
+    padding-bottom: 25px;
+}
+#chart-values, #chart-plot, #chart-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    justify-items: center;
+}
+#chart-values {
+    z-index: 1;
+
+}
+#chart-plot { height: 150px; }
+.chart-bar {
+    display: grid;
+    align-items: end;
+    width: 70%;
+}
+#chart-days {
+    font-size: 0.75rem;
+}
+#chart-days span {     vertical-align: top; }
+/* ----------------------- */
+.my-summary {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-top: 25px;
+}
+.my-summary .lastmonth {
+    justify-self: end;
+    align-self: end;
+    text-align: right;
+}
+/* ----------------------- */
+#document > footer {
+    margin-top: 0.25rem;
+}
+.attribution { text-align: center; }
+
+/* ----------------------- */
+.hidden { visibility: hidden; }
+
+/* ########## Adaptations for Larger Screens ################################ */
+@media only screen and (min-width: 540px) {
+    main {
+        width: 540px;
+    }
+    .my-balance { margin-bottom: 23px;}
+    .my-balance h1 { font-size: 1rem; }
+    .my-balance span { font-size: 2rem; }
+    .chart .chartday { font-size: 0.7rem; }
+    .my-summary h2 { font-size: 1rem; }
+    .my-summary .total span { font-size: 2.5rem; }
+    .my-summary .lastmonth span { font-size: 1rem; }
+}
+/* ########## Adaptations for Print (Saving some paper) ##################### */
+@media print {
+    body { height: unset; }
+    #document { margin: 0 auto; }
+}
